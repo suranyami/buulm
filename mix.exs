@@ -1,27 +1,27 @@
-defmodule Bloom.MixProject do
+defmodule Buulm.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :bloom,
+      app: :buulm,
       version: "0.0.8",
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      app_src: ["lib", "lib/bloom/components"],
+      app_src: ["lib", "lib/buulm/components"],
       package: package(),
       templates: ~w(priv/templates),
-      description: "An Opinionated extension to Phoenix core_components."
+      description: "Extends Phoenix CoreComponents using Bulma instead of Tailind."
     ]
   end
 
   defp package() do
     [
-      name: "bloom",
+      name: "buulm",
       files: ~w(lib/tasks priv/templates .formatter.exs mix.exs README* LICENSE*
                 CHANGELOG*),
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/chrisgreg/bloom"}
+      links: %{"GitHub" => "https://github.com/suranyami/buulm"}
     ]
   end
 

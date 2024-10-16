@@ -1,9 +1,9 @@
-defmodule Mix.Tasks.Bloom.GenerateTemplates do
+defmodule Mix.Tasks.Buulm.GenerateTemplates do
   use Mix.Task
 
-  @shortdoc "Generates EEx templates from Bloom component files."
+  @shortdoc "Generates EEx templates from Buulm component files."
   def run(_args) do
-    components_path = "lib/bloom/components"
+    components_path = "lib/buulm/components"
     js_hooks_path = "assets/js"
     templates_path = "priv/templates"
 
@@ -30,8 +30,8 @@ defmodule Mix.Tasks.Bloom.GenerateTemplates do
 
   defp convert_to_template(content) do
     content = content |> escape_eex_expressions()
-    content = Regex.replace(~r/Bloom.Components/, content, "<%= @module_name %>Web.Components")
-    Regex.replace(~r/Bloom.PubSub/, content, "<%= @module_name %>.PubSub")
+    content = Regex.replace(~r/Buulm.Components/, content, "<%= @module_name %>Web.Components")
+    Regex.replace(~r/Buulm.PubSub/, content, "<%= @module_name %>.PubSub")
   end
 
   defp escape_eex_expressions(content) do

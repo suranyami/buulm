@@ -1,6 +1,6 @@
 ## Changelog
 
-All notable changes to the "Bloom" project will be documented in this file.
+All notable changes to the "Buulm" project will be documented in this file.
 
 ### [0.0.8] - 2024-05-11
 
@@ -47,7 +47,7 @@ All notable changes to the "Bloom" project will be documented in this file.
 
 #### Added
 
-- Mix tasks for generating templates from Bloom component files
+- Mix tasks for generating templates from Buulm component files
 - Code snippet component
 - Gradient text component
 - Hero component
@@ -62,10 +62,10 @@ All notable changes to the "Bloom" project will be documented in this file.
 
 #### Added
 
-- Initial release of the Bloom extension for Phoenix.
+- Initial release of the Buulm extension for Phoenix.
 - Components added:
   - Glow Button component with customisable colors and effects.
-- Mix tasks for installing components (`mix bloom.install`).
+- Mix tasks for installing components (`mix buulm.install`).
 
 #### Changed
 

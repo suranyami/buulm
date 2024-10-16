@@ -1,5 +1,5 @@
-defmodule Mix.Tasks.Bloom.Install do
-  @moduledoc "Mix task to install components from the Bloom library"
+defmodule Mix.Tasks.Buulm.Install do
+  @moduledoc "Mix task to install components from the Buulm library"
   use Mix.Task
 
   @doc """
@@ -7,10 +7,10 @@ defmodule Mix.Tasks.Bloom.Install do
 
   ## Examples
 
-      iex> Mix.Tasks.Bloom.Install.run(["component_name"])
+      iex> Mix.Tasks.Buulm.Install.run(["component_name"])
       "component_name component installed successfully."
 
-      iex> Mix.Tasks.Bloom.Install.run(["nonexistent_component"])
+      iex> Mix.Tasks.Buulm.Install.run(["nonexistent_component"])
       "Component not found: nonexistent_component"
   """
   @impl true
@@ -35,8 +35,8 @@ defmodule Mix.Tasks.Bloom.Install do
   def install_component(file_name) do
     env = Mix.env() |> Atom.to_string()
     project_name = Mix.Project.config()[:app] |> Atom.to_string() |> String.downcase()
-    source_file = "_build/#{env}/lib/bloom/priv/templates/#{file_name}.ex"
-    js_hook_file = "_build/#{env}/lib/bloom/priv/templates/#{file_name}.js"
+    source_file = "_build/#{env}/lib/buulm/priv/templates/#{file_name}.ex"
+    js_hook_file = "_build/#{env}/lib/buulm/priv/templates/#{file_name}.js"
 
     if File.exists?(source_file) do
       component_dir = component_dir(project_name)
@@ -78,7 +78,7 @@ defmodule Mix.Tasks.Bloom.Install do
   defp component_dir(app_name), do: "lib/#{app_name}_web/components" |> String.downcase()
 
   defp print_usage_and_components do
-    Mix.shell().info("Usage: mix bloom.install [component_name]")
+    Mix.shell().info("Usage: mix buulm.install [component_name]")
 
     Mix.shell().info(
       "Available components: avatar | glow_button | code_snippet | hero | gradient_text | bento_grid | card | marquee | sound_effect"
@@ -87,7 +87,7 @@ defmodule Mix.Tasks.Bloom.Install do
 
   defp component_exists?(file_name) do
     env = Mix.env() |> Atom.to_string()
-    source_file = "_build/#{env}/lib/bloom/priv/templates/#{file_name}.ex"
+    source_file = "_build/#{env}/lib/buulm/priv/templates/#{file_name}.ex"
     File.exists?(source_file)
   end
 end
