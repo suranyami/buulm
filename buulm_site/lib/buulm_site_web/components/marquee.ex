@@ -1,7 +1,7 @@
 defmodule BuulmSiteWeb.Components.Marquee do
   use Phoenix.Component
 
-  @doc """
+  @moduledoc """
   Marquee component
 
   Sliding carousel of images that can go backwards and forwards.
@@ -42,13 +42,6 @@ defmodule BuulmSiteWeb.Components.Marquee do
   slot(:inner_block, required: true)
 
   def marquee(assigns) do
-    assigns =
-      assigns
-      |> assign(:repeat, assigns[:repeat] || 4)
-      |> assign(:vertical, assigns[:vertical] || false)
-      |> assign(:pause_on_hover, assigns[:pause_on_hover] || false)
-      |> assign(:reverse, assigns[:reverse] || false)
-
     ~H"""
     <div
       :if={@repeat > 0}
@@ -64,8 +57,8 @@ defmodule BuulmSiteWeb.Components.Marquee do
         <div
           class={[
             "flex shrink-0 justify-around [gap:var(--gap)]",
-            @vertical && "flex-col animate-marquee-vertical",
-            !@vertical && "flex-row animate-marquee",
+            @vertical && "animate-marquee-vertical flex-col",
+            !@vertical && "animate-marquee flex-row",
             @pause_on_hover && "group-hover:[animation-play-state:paused]"
           ]}
           style={@reverse && "animation-direction: reverse;"}

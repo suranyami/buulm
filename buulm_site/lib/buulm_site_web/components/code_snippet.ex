@@ -1,7 +1,7 @@
 defmodule BuulmSiteWeb.Components.CodeSnippet do
   use Phoenix.Component
 
-  @doc """
+  @moduledoc """
   Code snippet component
   """
 
@@ -14,25 +14,21 @@ defmodule BuulmSiteWeb.Components.CodeSnippet do
   attr(:delimiter, :string, default: "$")
 
   attr(:rest, :global)
-
   slot(:inner_block, required: true)
 
   def code_snippet(assigns) do
     ~H"""
     <div
       class={[
-        "w-fit min-w-[18rem] rounded-xl bg-#{@background_color} py-5 text-#{@text_color}",
+        "bg-#{@background_color} text-#{@text_color} min-w-[18rem] w-fit rounded-xl py-5",
         @parent_class
       ]}
       {@rest}
     >
-      <div class="mb-4 block h-3 w-3 rounded-full opacity-30 shadow-[1.4em_0,2.8em_0,4.2em_0]"></div>
+      <div class="shadow-[1.4em_0,2.8em_0,4.2em_0] mb-4 block h-3 w-3 rounded-full opacity-30"></div>
       <pre
         before={@delimiter}
-        class={[
-          "whitespace-normal px-8 mt-6 before:opacity-50 before:content-[attr(before)]",
-          @class
-        ]}
+        class={["mt-6 whitespace-normal px-8 before:content-[attr(before)] before:opacity-50", @class]}
       >
         <%= render_slot(@inner_block) %>
       </pre>

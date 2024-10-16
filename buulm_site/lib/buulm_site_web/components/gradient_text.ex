@@ -1,7 +1,7 @@
 defmodule BuulmSiteWeb.Components.GradientText do
   use Phoenix.Component
 
-  @doc """
+  @moduledoc """
   Gradient text component
   """
 
@@ -15,7 +15,13 @@ defmodule BuulmSiteWeb.Components.GradientText do
 
   def gradient_text(assigns) do
     ~H"""
-    <span class={["bg-gradient-to-r bg-clip-text text-transparent from-#{@from_color} to-#{@to_color}", @class]} {@rest}>
+    <span
+      class={[
+        "from-#{@from_color} to-#{@to_color} bg-gradient-to-r bg-clip-text text-transparent",
+        @class
+      ]}
+      {@rest}
+    >
       <%= render_slot(@inner_block) %>
     </span>
     """

@@ -14,13 +14,13 @@ defmodule BuulmSiteWeb.Components.GradientBlob do
   - `to_color`: The ending color of the gradient. Default is "#9089fc".
   - `seed`: A seed value used to generate the random polygon shape. Default is 0.
   """
-  attr :position, :string, default: "top"
-  attr :offset, :integer, default: 0
-  attr :width, :integer, default: 36
-  attr :rotate, :integer, default: 0
-  attr :from_color, :string, default: "#ff80b5"
-  attr :to_color, :string, default: "#9089fc"
-  attr :seed, :integer, default: 0
+  attr(:position, :string, default: "top")
+  attr(:offset, :integer, default: 0)
+  attr(:width, :integer, default: 36)
+  attr(:rotate, :integer, default: 0)
+  attr(:from_color, :string, default: "#ff80b5")
+  attr(:to_color, :string, default: "#9089fc")
+  attr(:seed, :integer, default: 0)
 
   def gradient_blob(assigns) do
     position_style = get_position_style(assigns.position, assigns.offset)
@@ -28,9 +28,23 @@ defmodule BuulmSiteWeb.Components.GradientBlob do
     rotate_style = "rotate: #{assigns.rotate}deg;"
     polygon = generate_polygon(assigns.seed)
 
+    assigns =
+      assigns
+      |> assign(:position_style, position_style)
+      |> assign(:width_style, width_style)
+      |> assign(:rotate_style, rotate_style)
+      |> assign(:polygon, polygon)
+
     ~H"""
-    <div class="pointer-events-none absolute left-0 right-0 -z-50 transform translate-z-0 overflow-hidden blur-2xl max-w-full" style={"#{position_style} #{width_style}"} aria-hidden="true">
-      <div class="relative left-1/2 aspect-[1155/678] -translate-x-1/2 opacity-30" style={"background-image: linear-gradient(to top right, #{@from_color}, #{@to_color}); clip-path: polygon(#{polygon}); #{rotate_style}"}>
+    <div
+      class="translate-z-0 pointer-events-none absolute right-0 left-0 -z-50 max-w-full transform overflow-hidden blur-2xl"
+      style={"#{@position_style} #{@width_style}"}
+      aria-hidden="true"
+    >
+      <div
+        class="aspect-[1155/678] relative left-1/2 -translate-x-1/2 opacity-30"
+        style={"background-image: linear-gradient(to top right, #{@from_color}, #{@to_color}); clip-path: polygon(#{@polygon}); #{@rotate_style}"}
+      >
       </div>
     </div>
     """
@@ -42,12 +56,14 @@ defmodule BuulmSiteWeb.Components.GradientBlob do
   defp generate_polygon(seed) do
     :rand.seed(:exsss, {seed, seed, seed})
     num_points = Enum.random(5..10)
+
     points =
       for _ <- 1..num_points do
         x = :rand.uniform() * 100
         y = :rand.uniform() * 100
         "#{x}% #{y}%"
       end
+
     Enum.join(points, ", ")
   end
 end
