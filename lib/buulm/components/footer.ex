@@ -1,14 +1,14 @@
-defmodule BulmaComponents.Footer do
+defmodule Buulm.CoreComponents.Footer do
   @moduledoc """
   Footer components.
   """
   use Phoenix.Component
-  import BulmaComponents.Icon
+  import Buulm.CoreComponents.Icon
 
   @doc """
   Renders a footer with a list of links.
   """
-  attr :links, :list, default: []
+  attr(:links, :list, default: [])
 
   def footer(assigns) do
     ~H"""

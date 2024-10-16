@@ -1,4 +1,4 @@
-defmodule BulmaComponents.Navbar do
+defmodule Buulm.CoreComponents.Navbar do
   use Phoenix.Component
 
   @doc """
@@ -11,9 +11,9 @@ defmodule BulmaComponents.Navbar do
       <.navbar/>
 
   """
-  attr :current_user, :any, default: nil, doc: "The current user"
+  attr(:current_user, :any, default: nil, doc: "The current user")
   # Rest
-  attr :rest, :global, include: ~w(disabled)
+  attr(:rest, :global, include: ~w(disabled))
 
   def navbar(assigns) do
     ~H"""
