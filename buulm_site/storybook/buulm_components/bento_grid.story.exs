@@ -1,8 +1,8 @@
 defmodule BuulmSite.Storybook.BuulmComponents.BentoGrid do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.BentoGrid.bento_card/1
-  def imports, do: [{BuulmSiteWeb.Components.BentoGrid, [bento_grid: 1]}]
+  def function, do: &Buulm.Components.BentoGrid.bento_card/1
+  def imports, do: [{Buulm.Components.BentoGrid, [bento_grid: 1]}]
 
   def template do
     """

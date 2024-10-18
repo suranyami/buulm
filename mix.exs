@@ -35,11 +35,15 @@ defmodule Buulm.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:phoenix, "~> 1.7.6"},
-      {:phoenix_live_view, "~> 0.19"},
-      {:phoenix_html, ">= 3.3.3"},
-      {:mox, "~> 1.0", only: :test},
+      {:bulma, github: "suranyami/bulma-elixir"},
+      {:dart_sass, "~> 0.7", runtime: Mix.env() == :dev},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false},
+      {:mox, "~> 1.2", only: :test},
+      {:phoenix_html, "~> 4.1"},
+      {:phoenix_live_view, "~> 0.20"},
+      {:phoenix, "~> 1.7"},
       {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false}
     ]
   end

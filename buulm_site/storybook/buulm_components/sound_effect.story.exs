@@ -1,7 +1,7 @@
 defmodule BuulmSite.Storybook.BuulmComponents.SoundEffect do
   use PhoenixStorybook.Story, :live_component
 
-  def component, do: BuulmSiteWeb.Components.SoundEffect
+  def component, do: Buulm.Components.SoundEffect
 
   def container, do: :iframe
 

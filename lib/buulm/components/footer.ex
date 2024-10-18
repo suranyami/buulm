@@ -1,4 +1,4 @@
-defmodule Buulm.CoreComponents.Footer do
+defmodule Buulm.Components.Footer do
   @moduledoc """
   Footer components.
   """

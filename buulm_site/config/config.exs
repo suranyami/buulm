@@ -30,10 +30,28 @@ config :buulm_site, BuulmSite.Mailer, adapter: Swoosh.Adapters.Local
 config :esbuild,
   version: "0.17.11",
   default: [
-    args:
-      ~w(js/app.js js/storybook.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    args: ~w(
+      js/app.js
+      js/storybook.js
+      --bundle
+      --target=es2017
+      --outdir=../priv/static/assets
+      --external:/fonts/* --external:/images/*
+    ),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
+config :dart_sass,
+  version: "1.70.0",
+  default: [
+    args:
+      ~w(
+      css/app.scss:../priv/static/assets/app.css
+      --load-path=../deps/bulma
+      css:../priv/static/assets
+      ),
+    cd: Path.expand("../assets", __DIR__)
   ]
 
 # Configure tailwind (the version is required)
@@ -42,7 +60,7 @@ config :tailwind,
   default: [
     args: ~w(
       --config=tailwind.config.js
-      --input=css/app.css
+      --input=css/app.scss
       --output=../priv/static/assets/app.css
     ),
     cd: Path.expand("../assets", __DIR__)

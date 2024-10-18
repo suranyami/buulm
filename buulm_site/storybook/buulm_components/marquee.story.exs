@@ -1,8 +1,8 @@
 defmodule BuulmSite.Storybook.BuulmComponents.Marquee do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.Marquee.marquee/1
-  def imports, do: [{BuulmSiteWeb.Components.Card, [card: 1]}]
+  def function, do: &Buulm.Components.Marquee.marquee/1
+  def imports, do: [{Buulm.Components.Card, [card: 1]}]
 
   def variations do
     [

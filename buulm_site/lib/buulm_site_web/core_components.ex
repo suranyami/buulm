@@ -16,8 +16,5 @@ defmodule BuulmSiteWeb.CoreComponents do
   """
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
-  import BuulmSiteWeb.Gettext
-
-
+  use Gettext, backend: BuulmSiteWeb.Gettext
 end

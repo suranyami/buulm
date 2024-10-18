@@ -16,18 +16,5 @@ defmodule Buulm.CoreComponents do
   """
   use Phoenix.Component
 
-  alias Phoenix.LiveView.JS
   # use Gettext, backend: Buulm.Gettext
-  import Buulm.CoreComponents.BackLink
-  import Buulm.CoreComponents.Button
-  import Buulm.CoreComponents.Colors
-  import Buulm.CoreComponents.Flash
-  import Buulm.CoreComponents.Form
-  import Buulm.CoreComponents.Header
-  import Buulm.CoreComponents.Icon
-  import Buulm.CoreComponents.Input
-  import Buulm.CoreComponents.JsCommands
-  import Buulm.CoreComponents.List
-  import Buulm.CoreComponents.Modal
-  import Buulm.CoreComponents.Table
 end

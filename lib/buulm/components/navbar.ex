@@ -1,4 +1,4 @@
-defmodule Buulm.CoreComponents.Navbar do
+defmodule Buulm.Components.Navbar do
   use Phoenix.Component
 
   @doc """

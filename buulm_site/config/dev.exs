@@ -15,9 +15,18 @@ config :buulm_site, BuulmSiteWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "EHb5HZzPUHQ44eRQSLktxFQ7jqY01qZMgkqPA/QdG+1DSUwrjxtELv+H8fsabAWo",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]},
-    storybook_tailwind: {Tailwind, :install_and_run, [:storybook, ~w(--watch)]}
+    esbuild: {
+      Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]
+      },
+    tailwind: {
+      Tailwind, :install_and_run, [:default, ~w(--watch)]
+      },
+    storybook_tailwind: {
+      Tailwind, :install_and_run, [:storybook, ~w(--watch)]
+    },
+      sass: {
+        DartSass, :install_and_run,   [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
   ]
 
 # ## SSL Support

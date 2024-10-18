@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import "bulma";
+/* This is your custom storybook stylesheet. */
+
+@layer utilities {
+  * {
+    font-family: system-ui;
+  }
+}

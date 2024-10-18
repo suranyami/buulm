@@ -1,7 +1,7 @@
 defmodule BuulmSite.Storybook.BuulmComponents.Hero do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.Hero.hero/1
+  def function, do: &Buulm.Components.Hero.hero/1
 
   def variations do
     [

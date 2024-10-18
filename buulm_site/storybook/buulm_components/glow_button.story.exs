@@ -1,7 +1,7 @@
 defmodule BuulmSite.Storybook.BuulmComponents.GlowButton do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.GlowButton.glow_button/1
+  def function, do: &Buulm.Components.GlowButton.glow_button/1
 
   def variations do
     [

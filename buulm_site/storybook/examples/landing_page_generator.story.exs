@@ -1,7 +1,7 @@
 defmodule Storybook.Examples.LandingPageGenerator do
   use PhoenixStorybook.Story, :example
   import BuulmSiteWeb.CoreComponents
-  import BuulmSiteWeb.Components.{Hero, GradientBlob}
+  import Buulm.Components.{Hero, GradientBlob}
 
   alias Phoenix.LiveView.JS
 

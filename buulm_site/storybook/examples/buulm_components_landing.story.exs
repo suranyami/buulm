@@ -1,11 +1,11 @@
 defmodule Storybook.Examples.BuulmComponentsLanding do
   use PhoenixStorybook.Story, :example
-  import BuulmSiteWeb.Components.CodeSnippet
-  import BuulmSiteWeb.Components.GlowButton
-  import BuulmSiteWeb.Components.Hero
-  import BuulmSiteWeb.Components.GradientText
-  import BuulmSiteWeb.Components.BentoGrid
-  import BuulmSiteWeb.Components.Avatar
+  import Buulm.Components.CodeSnippet
+  import Buulm.Components.GlowButton
+  import Buulm.Components.Hero
+  import Buulm.Components.GradientText
+  import Buulm.Components.BentoGrid
+  import Buulm.Components.Avatar
   import BuulmSiteWeb.CoreComponents
 
   def doc do

@@ -1,7 +1,7 @@
 defmodule BuulmSite.Storybook.BuulmComponents.GradientBlob do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.GradientBlob.gradient_blob/1
+  def function, do: &Buulm.Components.GradientBlob.gradient_blob/1
 
   def variations do
     [

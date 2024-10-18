@@ -40,6 +40,8 @@ defmodule BuulmSite.MixProject do
   defp deps do
     [
       {:buulm, path: "../"},
+      {:bulma, github: "suranyami/bulma-elixir"},
+      {:dart_sass, "~> 0.7", runtime: Mix.env() == :dev},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
       {:finch, "~> 0.13"},
       {:floki, ">= 0.30.0", only: :test},

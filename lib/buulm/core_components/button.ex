@@ -28,18 +28,37 @@ defmodule Buulm.CoreComponents.Button do
       <.button color={:success}>Success</.button>
       <.button color={:warning}>Warning</.button>
       <.button color={:danger}>Danger</.button>
+      <.button color={:danger} light=true >Light Color Variant</.button>
+
+  Button sizes:
+
+      <.button size={:small}>Small</.button>
+      <.button size={:normal}>Normal</.button>
+      <.button size={:medium}>Medium</.button>
+      <.button size={:large}>Large</.button>
+
+  Button states:
+
+      <.button size={:hovered}>Hovered</.button>
+      <.button size={:focused}>Focused</.button>
+      <.button size={:active}>Active</.button>
+      <.button size={:loading}>Loading</.button>
+      <.button size={:disabled}>Disabled</.button>
 
   """
   # Styles
   attr(:outlined, :boolean, default: false, doc: "Outlined style")
   attr(:inverted, :boolean, default: false, doc: "Inverted style")
   attr(:rounded, :boolean, default: false, doc: "Rounded corners")
+
   # Sizes
   attr(:size, :atom, default: nil, values: [nil, :small, :normal, :medium, :large])
   attr(:responsive, :boolean, default: false, doc: "Different sizes for each breakpoint")
+
   # Colors
   attr(:color, :atom, default: nil, values: [nil | Colors.colors()])
   attr(:light, :boolean, default: false, doc: "Light color variant")
+
   # States
   attr(:hovered, :boolean, default: false)
   attr(:focused, :boolean, default: false)
@@ -48,7 +67,9 @@ defmodule Buulm.CoreComponents.Button do
   attr(:disabled, :boolean, default: false)
 
   # Rest
-  attr(:rest, :global, include: ~w(disabled))
+  attr(:class, :string, default: nil)
+  attr(:type, :string, default: nil)
+  attr(:rest, :global, include: ~w(disabled form name value))
 
   slot(:inner_block, required: true)
 
@@ -79,10 +100,10 @@ defmodule Buulm.CoreComponents.Button do
         names -> put_is_value(names, attr, assigns)
       end
 
-    assigns = assign(assigns, :class, Enum.reverse(class_names))
+    assigns = assign(assigns, :class, [@class | Enum.reverse(class_names)])
 
     ~H"""
-    <button class={@class} {@rest}><%= render_slot(@inner_block) %></button>
+    <button type={@type} class={@class} {@rest}><%= render_slot(@inner_block) %></button>
     """
   end
 

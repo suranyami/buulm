@@ -62,10 +62,7 @@ defmodule Buulm.Components.Avatar do
 
     ~H"""
     <figure class={@figure_classes} {@rest}>
-      <img
-        src={@img_src || "https://api.dicebear.com/8.x/#{@style}/svg?seed=#{@name}"}
-        alt={"#{@name} avatar"}
-      />
+      <img src={"https://api.dicebear.com/8.x/#{@style}/svg?seed=#{@name}"} alt={"#{@name} avatar"} />
     </figure>
     """
   end

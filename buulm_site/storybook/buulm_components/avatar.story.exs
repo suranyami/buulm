@@ -1,9 +1,9 @@
 defmodule BuulmSite.Storybook.BuulmComponents.Avatar do
   use PhoenixStorybook.Story, :example
-  import BuulmSiteWeb.Components.Avatar
+  import Buulm.Components.Avatar
 
-  def function, do: &BuulmSiteWeb.Components.Avatar.avatar/1
-  def imports, do: [{BuulmSiteWeb.Components.Avatar, [avatar: 1]}]
+  def function, do: &Buulm.Components.Avatar.avatar/1
+  def imports, do: [{Buulm.Components.Avatar, [avatar: 1]}]
 
   @impl true
   def render(assigns) do

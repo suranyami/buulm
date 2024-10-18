@@ -1,7 +1,7 @@
 defmodule BuulmSite.Storybook.BuulmComponents.CodeSnippet do
   use PhoenixStorybook.Story, :component
 
-  def function, do: &BuulmSiteWeb.Components.CodeSnippet.code_snippet/1
+  def function, do: &Buulm.Components.CodeSnippet.code_snippet/1
 
   def variations do
     [
