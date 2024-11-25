@@ -4,7 +4,7 @@ defmodule Buulm.MixProject do
   def project do
     [
       app: :buulm,
-      version: "0.0.8",
+      version: "0.0.9",
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -42,7 +42,7 @@ defmodule Buulm.MixProject do
       {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false},
       {:mox, "~> 1.2", only: :test},
       {:phoenix_html, "~> 4.1"},
-      {:phoenix_live_view, "~> 0.20"},
+      {:phoenix_live_view, "~> 1.0.0-rc.7"},
       {:phoenix, "~> 1.7"},
       {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false}
     ]

@@ -61,7 +61,7 @@ defmodule Buulm.Components.SoundEffect do
 
   attr(:disabled, :boolean, default: false)
   attr(:class, :string, default: "", doc: "CSS class for root button")
-  slot(:inner_block, default: [])
+  slot(:inner_block)
 
   @impl true
   def render(assigns) do
