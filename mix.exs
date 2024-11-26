@@ -8,7 +8,6 @@ defmodule Buulm.MixProject do
       elixir: "~> 1.16",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      app_src: ["lib", "lib/buulm/components"],
       package: package(),
       templates: ~w(priv/templates),
       description: "Extends Phoenix CoreComponents using Bulma instead of Tailind."
@@ -39,6 +38,7 @@ defmodule Buulm.MixProject do
       {:dart_sass, "~> 0.7", runtime: Mix.env() == :dev},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:gettext, "~> 0.26"},
       {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false},
       {:mox, "~> 1.2", only: :test},
       {:phoenix_html, "~> 4.1"},
