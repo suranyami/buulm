@@ -16,30 +16,30 @@ defmodule Buulm.CoreComponents do
   """
   use Phoenix.Component
 
-  import Buulm.CoreComponents.BackLink
-  import Buulm.CoreComponents.Button
-  import Buulm.CoreComponents.Colors
-  import Buulm.CoreComponents.Flash
-  import Buulm.CoreComponents.Form
-  import Buulm.CoreComponents.Header
-  import Buulm.CoreComponents.Icon
-  import Buulm.CoreComponents.Input
-  import Buulm.CoreComponents.JsCommands
-  import Buulm.CoreComponents.List
-  import Buulm.CoreComponents.Modal
-  import Buulm.CoreComponents.Table
+  # import Buulm.CoreComponents.BackLink
+  # import Buulm.CoreComponents.Button
+  # import Buulm.CoreComponents.Colors
+  # import Buulm.CoreComponents.Flash
+  # import Buulm.CoreComponents.Form
+  # import Buulm.CoreComponents.Header
+  # import Buulm.CoreComponents.Icon
+  # import Buulm.CoreComponents.Input
+  # import Buulm.CoreComponents.JsCommands
+  # import Buulm.CoreComponents.List
+  # import Buulm.CoreComponents.Modal
+  # import Buulm.CoreComponents.Table
 
-  import Buulm.Components.Avatar
-  import Buulm.Components.BentoGrid
-  import Buulm.Components.Card
-  import Buulm.Components.CodeSnippet
-  import Buulm.Components.Footer
-  import Buulm.Components.GradientBlob
-  import Buulm.Components.GradientText
-  import Buulm.Components.Hero
-  import Buulm.Components.Marquee
-  import Buulm.Components.Navbar
-  import Buulm.Components.SoundEffect
+  # import Buulm.Components.Avatar
+  # import Buulm.Components.BentoGrid
+  # import Buulm.Components.Card
+  # import Buulm.Components.CodeSnippet
+  # import Buulm.Components.Footer
+  # import Buulm.Components.GradientBlob
+  # import Buulm.Components.GradientText
+  # import Buulm.Components.Hero
+  # import Buulm.Components.Marquee
+  # import Buulm.Components.Navbar
+  # import Buulm.Components.SoundEffect
 
   # use Gettext, backend: Buulm.Gettext
 end
