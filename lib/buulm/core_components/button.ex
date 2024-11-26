@@ -100,7 +100,7 @@ defmodule Buulm.CoreComponents.Button do
         names -> put_is_value(names, attr, assigns)
       end
 
-    assigns = assign(assigns, :class, [@class | Enum.reverse(class_names)])
+    assigns = assign(assigns, :class, [assigns[:class] | Enum.reverse(class_names)])
 
     ~H"""
     <button type={@type} class={@class} {@rest}><%= render_slot(@inner_block) %></button>
