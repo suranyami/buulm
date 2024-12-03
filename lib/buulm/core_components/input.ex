@@ -6,6 +6,7 @@ defmodule Buulm.CoreComponents.Input do
   alias Phoenix.HTML.{Form, FormField}
 
   import Buulm.CoreComponents.Icon
+  use Gettext, backend: Buulm.Gettext
 
   @doc """
   Renders an input with label and error messages.
@@ -225,9 +226,9 @@ defmodule Buulm.CoreComponents.Input do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(Buulm.CoreComponents.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Buulm.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Buulm.CoreComponents.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Buulm.Gettext, "errors", msg, opts)
     end
   end
 

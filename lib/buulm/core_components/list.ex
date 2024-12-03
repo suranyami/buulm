@@ -24,7 +24,7 @@ defmodule Buulm.CoreComponents.List do
   """
   def list(assigns) do
     ~H"""
-    <ul class={["list"]}>
+    <ul class={["list" ++ @style_type]}>
       <%= for item <- @items do %>
         <li><%= item %></li>
       <% end %>

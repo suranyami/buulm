@@ -6,11 +6,20 @@ defmodule Buulm.Components.Navbar do
 
   ## Examples
 
-  Button styles:
 
-      <.navbar/>
+      <.navbar>
+        <.navbar_start>
+          <.navbar_item>
+          </.navbar_item
+        </navbar_start>
+        <.navbar_end>
+        </.navbar_end>
+      </.navbar>
 
   """
+  attr(:start_items, :any, default: [], doc: "Navbar items starting on the left")
+  attr(:end_items, :any, default: [], doc: "Navbar items at the right end")
+
   attr(:current_user, :any, default: nil, doc: "The current user")
   # Rest
   attr(:rest, :global, include: ~w(disabled))
@@ -24,7 +33,7 @@ defmodule Buulm.Components.Navbar do
           class="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navbarBasicExample"
+          data-target="navbar-exp"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -32,7 +41,7 @@ defmodule Buulm.Components.Navbar do
         </a>
       </div>
 
-      <div id="navbarBasicExample" class="navbar-menu">
+      <div id="navbar-exp" class="navbar-menu">
         <div class="navbar-start">
           <a class="navbar-item">
             Home
