@@ -37,14 +37,14 @@ defmodule Buulm.MixProject do
       {:bulma, github: "suranyami/bulma-elixir"},
       {:dart_sass, "~> 0.7", runtime: Mix.env() == :dev},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.36", only: :dev, runtime: false},
       {:gettext, "~> 0.26"},
       {:mix_test_watch, "~> 1.2", only: [:dev, :test], runtime: false},
       {:mox, "~> 1.2", only: :test},
-      {:phoenix_html, "~> 4.1"},
-      {:phoenix_live_view, "~> 1.0.0-rc.7"},
+      {:phoenix_html, "~> 4.2"},
+      {:phoenix_live_view, "~> 1.0"},
       {:phoenix, "~> 1.7"},
-      {:tailwind_formatter, "~> 0.4.0", only: [:dev, :test], runtime: false}
+      {:tailwind_formatter, "~> 0.4", only: [:dev, :test], runtime: false}
     ]
   end
 end

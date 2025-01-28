@@ -85,7 +85,6 @@ defmodule BuulmSiteWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import BuulmSiteWeb.CoreComponents
-      import Buulm.Components
       import BuulmSiteWeb.Gettext
 
       # Shortcut for generating JS commands

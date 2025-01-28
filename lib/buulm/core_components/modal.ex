@@ -50,7 +50,7 @@ defmodule Buulm.CoreComponents.Modal do
           aria-modal="true"
           tabindex="0"
         >
-          <%= render_slot(@inner_block) %>
+          {render_slot(@inner_block)}
         </div>
       </.focus_wrap>
       <button
