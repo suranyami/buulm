@@ -1,5 +1,6 @@
 defmodule Storybook.Examples.BuulmComponentsLanding do
   use PhoenixStorybook.Story, :example
+  import Buulm.Components.Navbar
   import Buulm.Components.CodeSnippet
   import Buulm.Components.GlowButton
   import Buulm.Components.Hero
@@ -22,7 +23,32 @@ defmodule Storybook.Examples.BuulmComponentsLanding do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="max-w-4xl mx-auto">
+    <div class="mx-auto max-w-4xl">
+    <.navbar>
+    <.navbar_menu>
+    <.navbar_burger/>
+        <.navbar_start>
+          <.navbar_item>Home<./navbar_item>
+
+          <.navbar_item>Documentation<./navbar_item>
+          <.navbar_dropdown title="More">
+              <.navbar_item>About<./navbar_item>
+              <.navbar_item> Jobs<./navbar_item>
+              <.navbar_item>Contact<./navbar_item>
+              <.navbar_divider/>
+              <.navbar_item> Report an issue<./navbar_item>
+            <./navbar_dropdown>
+        <./navbar_start>
+
+        <.navbar_end>
+          <.navbar_item>
+            <.login_buttons current_user={@current_user}/>
+          <.navbar_item>
+        <.navbar_end>
+      <div>
+      <./navbar_menu>
+      </.navbar>
+
       <.hero>
         <img src="/images/buulm.png" class="w-[160px] mx-auto" />
         <.gradient_text from_color="rose-400" to_color="purple-500">Buulm</.gradient_text>
@@ -38,42 +64,42 @@ defmodule Storybook.Examples.BuulmComponentsLanding do
         </:actions>
       </.hero>
 
-      <div class="mx-auto flex justify-center my-12">
+      <div class="mx-auto my-12 flex justify-center">
         <.code_snippet>
           mix buulm.install code_snippet
         </.code_snippet>
       </div>
 
-      <div class="flex flex-row flex-wrap my-12">
-      <.avatar name="Alice" style="adventurer" />
-      <.avatar name="Bob" style="adventurer-neutral" />
-      <.avatar name="Charlie" style="avataaars" />
-      <.avatar name="Diana" style="avataaars-neutral" />
-      <.avatar name="Ethan" style="big-ears" />
-      <.avatar name="Fiona" style="big-ears-neutral" />
-      <.avatar name="George" style="big-smile" />
-      <.avatar name="Hannah" style="bottts" />
-      <.avatar name="Ian" style="bottts-neutral" />
-      <.avatar name="Julia" style="croodles" />
-      <.avatar name="Kevin" style="croodles-neutral" />
-      <.avatar name="Liam" style="fun-emoji" />
-      <.avatar name="Mia" style="icons" />
-      <.avatar name="Noah" style="identicon" />
-      <.avatar name="Olivia" style="initials" />
-      <.avatar name="Parker" style="lorelei" />
-      <.avatar name="Quinn" style="lorelei-neutral" />
-      <.avatar name="Ruby" style="micah" />
-      <.avatar name="Sam" style="miniavs" />
-      <.avatar name="Tina" style="notionists" />
-      <.avatar name="Umar" style="notionists-neutral" />
-      <.avatar name="Violet" style="open-peeps" />
-      <.avatar name="Will" style="personas" />
-      <.avatar name="Xena" style="pixel-art" />
-      <.avatar name="Yara" style="pixel-art-neutral" />
-      <.avatar name="Zack" style="rings" />
-      <.avatar name="Amelia" style="shapes" />
-      <.avatar name="Ben" style="thumbs" />
-      <.avatar name="Ben" img_src="https://picsum.photos/64" />
+      <div class="my-12 flex flex-row flex-wrap">
+        <.avatar name="Alice" style="adventurer" />
+        <.avatar name="Bob" style="adventurer-neutral" />
+        <.avatar name="Charlie" style="avataaars" />
+        <.avatar name="Diana" style="avataaars-neutral" />
+        <.avatar name="Ethan" style="big-ears" />
+        <.avatar name="Fiona" style="big-ears-neutral" />
+        <.avatar name="George" style="big-smile" />
+        <.avatar name="Hannah" style="bottts" />
+        <.avatar name="Ian" style="bottts-neutral" />
+        <.avatar name="Julia" style="croodles" />
+        <.avatar name="Kevin" style="croodles-neutral" />
+        <.avatar name="Liam" style="fun-emoji" />
+        <.avatar name="Mia" style="icons" />
+        <.avatar name="Noah" style="identicon" />
+        <.avatar name="Olivia" style="initials" />
+        <.avatar name="Parker" style="lorelei" />
+        <.avatar name="Quinn" style="lorelei-neutral" />
+        <.avatar name="Ruby" style="micah" />
+        <.avatar name="Sam" style="miniavs" />
+        <.avatar name="Tina" style="notionists" />
+        <.avatar name="Umar" style="notionists-neutral" />
+        <.avatar name="Violet" style="open-peeps" />
+        <.avatar name="Will" style="personas" />
+        <.avatar name="Xena" style="pixel-art" />
+        <.avatar name="Yara" style="pixel-art-neutral" />
+        <.avatar name="Zack" style="rings" />
+        <.avatar name="Amelia" style="shapes" />
+        <.avatar name="Ben" style="thumbs" />
+        <.avatar name="Ben" img_src="https://picsum.photos/64" />
       </div>
 
       <.bento_grid class="grid-rows-4 grid-cols-3">
