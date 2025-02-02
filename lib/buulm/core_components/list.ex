@@ -22,11 +22,14 @@ defmodule Buulm.CoreComponents.List do
       </.list>
 
   """
+
+  slot(:item, required: true)
+
   def list(assigns) do
     ~H"""
     <ul class={["list" ++ @style_type]}>
       <%= for item <- @items do %>
-        <li><%= item %></li>
+        <li>{item}</li>
       <% end %>
     </ul>
     """
