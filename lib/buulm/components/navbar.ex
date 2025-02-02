@@ -54,9 +54,11 @@ defmodule Buulm.Components.Navbar do
     """
   end
 
+  attr(:href, :string, required: true)
+
   def navbar_item(assigns) do
     ~H"""
-    <a class="navbar-item">
+    <a class="navbar-item" href={@href}>
       {render_slot(@inner_block)}
     </a>
     """
@@ -73,14 +75,6 @@ defmodule Buulm.Components.Navbar do
   def navbar_start(assigns) do
     ~H"""
     <div class="navbar-start">
-      {render_slot(@inner_block)}
-    </div>
-    """
-  end
-
-  def navbar_end(assigns) do
-    ~H"""
-    <div class="navbar-end">
       {render_slot(@inner_block)}
     </div>
     """
