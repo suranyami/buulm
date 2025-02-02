@@ -27,13 +27,13 @@ defmodule Buulm.CoreComponents.Modal do
   """
   def modal(assigns) do
     ~H"""
-    <div class="modal">
-      <div
-        id={@id}
-        phx-mounted={@show && show_modal(@id)}
-        phx-remove={hide_modal(@id)}
-        data-cancel={JS.exec(@on_cancel, "phx-remove")}
-      >
+    <div
+      id={@id}
+      phx-mounted={@show && show_modal(@id)}
+      phx-remove={hide_modal(@id)}
+      data-cancel={JS.exec(@on_cancel, "phx-remove")}
+    >
+      <div class="modal">
         <div id={"#{@id}-bg"} aria-hidden="true" class="modal-background"></div>
         <.focus_wrap
           id={"#{@id}-container"}
