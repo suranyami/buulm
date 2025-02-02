@@ -80,6 +80,14 @@ defmodule Buulm.Components.Navbar do
     """
   end
 
+  def navbar_end(assigns) do
+    ~H"""
+    <div class="navbar-end">
+      {render_slot(@inner_block)}
+    </div>
+    """
+  end
+
   def navbar_burger(assigns) do
     ~H"""
     <a
