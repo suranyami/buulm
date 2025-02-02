@@ -7,8 +7,8 @@ defmodule Buulm.CoreComponents.List do
     doc: "The list style type"
   )
 
-  attr(:items, :any, default: [], doc: "The list items")
   attr(:rest, :global)
+  slot(:item, required: true)
 
   @doc """
   Renders an unordered list.
@@ -23,12 +23,10 @@ defmodule Buulm.CoreComponents.List do
 
   """
 
-  slot(:item, required: true)
-
   def list(assigns) do
     ~H"""
     <ul class={["list" ++ @style_type]}>
-      <%= for item <- @items do %>
+      <%= for item <- @item do %>
         <li>{item}</li>
       <% end %>
     </ul>
