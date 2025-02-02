@@ -27,40 +27,41 @@ defmodule Buulm.CoreComponents.Modal do
   """
   def modal(assigns) do
     ~H"""
-    <div
-      class="modal"
-      id={@id}
-      phx-mounted={@show && show_modal(@id)}
-      phx-remove={hide_modal(@id)}
-      data-cancel={JS.exec(@on_cancel, "phx-remove")}
-    >
-      <div id={"#{@id}-bg"} aria-hidden="true" class="modal-background"></div>
-      <.focus_wrap
-        id={"#{@id}-container"}
-        phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
-        phx-key="escape"
-        phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
+    <div class="modal">
+      <div
+        id={@id}
+        phx-mounted={@show && show_modal(@id)}
+        phx-remove={hide_modal(@id)}
+        data-cancel={JS.exec(@on_cancel, "phx-remove")}
       >
-        <div
-          class="modal-content"
-          id={"#{@id}-content"}
-          aria-labelledby={"#{@id}-title"}
-          aria-describedby={"#{@id}-description"}
-          role="dialog"
-          aria-modal="true"
-          tabindex="0"
+        <div id={"#{@id}-bg"} aria-hidden="true" class="modal-background"></div>
+        <.focus_wrap
+          id={"#{@id}-container"}
+          phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
+          phx-key="escape"
+          phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
         >
-          {render_slot(@inner_block)}
-        </div>
-      </.focus_wrap>
-      <button
-        class="modal-close is-large"
-        phx-click={JS.exec("data-cancel", to: "##{@id}")}
-        aria-label="close"
-        type="button"
-        aria-label="close"
-      >
-      </button>
+          <div
+            class="modal-content"
+            id={"#{@id}-content"}
+            aria-labelledby={"#{@id}-title"}
+            aria-describedby={"#{@id}-description"}
+            role="dialog"
+            aria-modal="true"
+            tabindex="0"
+          >
+            {render_slot(@inner_block)}
+          </div>
+        </.focus_wrap>
+        <button
+          class="modal-close is-large"
+          phx-click={JS.exec("data-cancel", to: "##{@id}")}
+          aria-label="close"
+          type="button"
+          aria-label="close"
+        >
+        </button>
+      </div>
     </div>
     """
   end
