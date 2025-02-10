@@ -33,7 +33,7 @@ defmodule Buulm.CoreComponents.Modal do
       id={@id}
       class="modal"
       phx-mounted={@show && show_modal(@id)}
-      phx-remove={hide(@id)}
+      phx-remove={hide_modal(@id)}
       data-cancel={JS.exec(@on_cancel, "phx-remove")}
     >
       <.focus_wrap>
@@ -46,7 +46,7 @@ defmodule Buulm.CoreComponents.Modal do
           aria-modal="true"
           tabindex="0"
         >
-          {render_slot(@inner_block, hide(@id))}
+          {render_slot(@inner_block, hide_modal(@id))}
         </div>
       </.focus_wrap>
       <button
@@ -61,11 +61,11 @@ defmodule Buulm.CoreComponents.Modal do
     """
   end
 
-  def show(id) do
+  def show_modal(id) do
     JS.dispatch("show-dialog-modal", to: "##{id}")
   end
 
-  def hide(id) do
+  def hide_modal(id) do
     JS.dispatch("hide-dialog-modal", to: "##{id}")
   end
 end
