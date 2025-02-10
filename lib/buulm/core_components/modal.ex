@@ -36,7 +36,13 @@ defmodule Buulm.CoreComponents.Modal do
       phx-remove={hide_modal(@id)}
       data-cancel={JS.exec(@on_cancel, "phx-remove")}
     >
-      <.focus_wrap>
+      <.focus_wrap
+        id={"#{@id}-wrap"}
+        phx-window-keydown={JS.exec("phx-hide-modal", to: "##{@id}")}
+        phx-key="escape"
+        phx-click-away={JS.exec("phx-hide-modal", to: "##{@id}")}
+        class="w-full sm:max-w-[425px]"
+      >
         <div
           class="modal-content"
           id={"#{@id}-content"}
