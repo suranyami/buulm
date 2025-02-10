@@ -36,6 +36,7 @@ defmodule Buulm.CoreComponents.Modal do
       phx-remove={hide(@id)}
       data-cancel={JS.exec(@on_cancel, "phx-remove")}
     >
+      <.focus_wrap>
         <div
           class="modal-content"
           id={"#{@id}-content"}
