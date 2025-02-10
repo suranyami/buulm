@@ -1,5 +1,7 @@
 defmodule Buulm.CoreComponents.Modal do
   use Phoenix.Component
+  use Gettext, backend: Buulm.Gettext
+
   import Buulm.CoreComponents.JsCommands
   alias Phoenix.LiveView.JS
 
@@ -27,44 +29,42 @@ defmodule Buulm.CoreComponents.Modal do
   """
   def modal(assigns) do
     ~H"""
-    <div
+    <dialog
       id={@id}
+      class="modal"
       phx-mounted={@show && show_modal(@id)}
-      phx-remove={hide_modal(@id)}
+      phx-remove={hide(@id)}
       data-cancel={JS.exec(@on_cancel, "phx-remove")}
     >
-      <div class="modal">
-        <div id={"#{@id}-bg"} aria-hidden="true" class="modal-background"></div>
-        <.focus_wrap
-          id={"#{@id}-container"}
-          phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
-          phx-key="escape"
-          phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
+        <div
+          class="modal-content"
+          id={"#{@id}-content"}
+          aria-labelledby={"#{@id}-title"}
+          aria-describedby={"#{@id}-description"}
+          role="dialog"
+          aria-modal="true"
+          tabindex="0"
         >
-          <div
-            class="modal-content"
-            id={"#{@id}-content"}
-            aria-labelledby={"#{@id}-title"}
-            aria-describedby={"#{@id}-description"}
-            role="dialog"
-            aria-modal="true"
-            tabindex="0"
-          >
-            {render_slot(@inner_block)}
-          </div>
-        </.focus_wrap>
-        <button
-          class="modal-close is-large"
-          phx-click={JS.exec("data-cancel", to: "##{@id}")}
-          aria-label="close"
-          type="button"
-          aria-label="close"
-        >
-        </button>
-      </div>
-    </div>
+          {render_slot(@inner_block, hide(@id))}
+        </div>
+      </.focus_wrap>
+      <button
+        class="modal-close is-large"
+        phx-click={JS.exec("data-cancel", to: "##{@id}")}
+        aria-label="close"
+        type="button"
+        aria-label="close"
+      >
+      </button>
+    </dialog>
     """
   end
 
-  def gettext(string), do: string
+  def show(id) do
+    JS.dispatch("show-dialog-modal", to: "##{id}")
+  end
+
+  def hide(id) do
+    JS.dispatch("hide-dialog-modal", to: "##{id}")
+  end
 end
