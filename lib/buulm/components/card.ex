@@ -11,6 +11,9 @@ defmodule Buulm.Components.Card do
   """
   slot(:inner_block, required: true)
   slot(:figure)
+  slot(:left)
+  slot(:center)
+  slot(:right)
 
   def card(assigns) do
     ~H"""
@@ -22,8 +25,14 @@ defmodule Buulm.Components.Card do
       </div>
       <div class="card-content">
         <div class="media">
-          <div class="media-content">
-            {render_slot(@inner_block)}
+          <div :if={@left != []} class="media-left">
+            {render_slot(@left)}
+          </div>
+          <div :if={@center != []} class="media-content">
+            {render_slot(@center)}
+          </div>
+          <div :if={@right != []} class="media-right">
+            {render_slot(@right)}
           </div>
         </div>
       </div>
