@@ -28,12 +28,13 @@ defmodule Buulm.Components.Card do
           <div :if={@left != []} class="media-left">
             {render_slot(@left)}
           </div>
-          <div :if={@center != []} class="media-content has-text-centered">
+          <div :if={@center != []} class="media-content has-text-centered ">
             {render_slot(@center)}
           </div>
           <div :if={@right != []} class="media-right">
             {render_slot(@right)}
           </div>
+          {render_slot(@inner_block)}
         </div>
       </div>
     </div>
